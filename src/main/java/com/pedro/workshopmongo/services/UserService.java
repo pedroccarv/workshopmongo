@@ -1,6 +1,7 @@
 package com.pedro.workshopmongo.services;
 
 import com.pedro.workshopmongo.domain.User;
+import com.pedro.workshopmongo.dto.UserDto;
 import com.pedro.workshopmongo.repository.UserRepository;
 import com.pedro.workshopmongo.resources.UserResource;
 import com.pedro.workshopmongo.services.exception.ObjectNotFoundException;
@@ -24,4 +25,13 @@ public class UserService {
         Optional<User> user = repo.findById(id);
         return user.orElseThrow(() -> new ObjectNotFoundException(id));
     }
+
+    public User insert(User obj){
+        return repo.insert(obj);
+    }
+
+    public User fromDto(UserDto objDto){
+        return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
+    }
+
 }
