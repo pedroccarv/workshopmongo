@@ -1,5 +1,6 @@
 package com.pedro.workshopmongo.domain;
 
+import com.pedro.workshopmongo.dto.AuthorDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -15,11 +16,11 @@ public class Post implements Serializable {
     private String title;
     private String body;
 
-    private User author;
+    private AuthorDTO author;
 
     public Post(){}
 
-    public Post(String id, Date date, String title, String body, User author) {
+    public Post(String id, Date date, String title, String body, AuthorDTO author) {
         this.id = id;
         this.date = date;
         this.title = title;
@@ -51,10 +52,10 @@ public class Post implements Serializable {
     public void setBody(String body) {
         this.body = body;
     }
-    public User getUser() {
+    public AuthorDTO getUser() {
         return author;
     }
-    public void setUser(User author) {
+    public void setUser(AuthorDTO author) {
         this.author = author;
     }
 
